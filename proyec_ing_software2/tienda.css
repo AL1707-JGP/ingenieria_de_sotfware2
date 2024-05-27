@@ -29,22 +29,11 @@ button {
 fieldset {
 	border: none;
 }
-h1 {
-	font-size: 180%;
-}
-h2 {
-	font-size: 1em;
-}
-h3 {
-	font-size: 1em;
-}
-h4 {
-	font-size: 0,9em;
-}
-p {
-	font-size: 1em;
-}
-
+h1 {font-size: 180%;}
+h2 {font-size: 1em;}
+h3 {font-size: 1em;}
+h4 {font-size: 0,9em;}
+p {font-size: 1em;}
 a:link,
 a:visited {
 	color: #100115;
@@ -61,7 +50,6 @@ a:visited {
 	background-color: #aac4e6;
 }
 .banner::before {
-
 	color: red;
 	content: '';
 	display: list-item;
@@ -70,8 +58,6 @@ a:visited {
 	width: 200%;
 	background-color: rgba(5, 162, 139, 0.5);
 }
-
-
 .in-line {
 	display: flex;
 	justify-content: center;
@@ -92,8 +78,6 @@ a:visited {
 	justify-content: space-around;
 	align-items: center;
 }
-
-
 .theme-sky {
 	background-color: #548cd6;
 	color: white;
@@ -102,8 +86,6 @@ a:visited {
 	background-color: #30304f;
 	color: white;
 }
-
-
 .button {
 	font-family: 'Lato', sans-serif;
 	letter-spacing: 3px;
@@ -132,7 +114,6 @@ a:visited {
 	border: 6px solid rgb(124, 240, 124);
 	box-shadow: none;
 }
-
 .header {
 	justify-content: space-between;
 	padding: 10px 10px;
@@ -155,23 +136,19 @@ a:visited {
 .cart-qty {
 	margin: 0 5px;
 }
-
 .banner {
 	position: relative;
 	min-height: 300px;
 	margin-bottom: 50px;
 	box-shadow: 10px 5px 10px rgb(0, 0, 0);
 }
-
 .banner-title {
 	position: absolute;
 	color: white;
 	font-weight: bold;
 }
-
 aside {
 	padding: 15px;
-	
 }
 .filters-container {
 	align-items: flex-start;
@@ -249,8 +226,6 @@ aside {
 	font-size: 12px;
 	margin: 0px 2px;
 }
-
-
 .products-container {
 	flex: 4;
 }
@@ -260,7 +235,6 @@ aside {
 	margin: 10px;
 	border-radius: 5px;
 }
-
 .products-list {
 	flex-grow: 1;
 	align-items: flex-start;
@@ -324,7 +298,6 @@ button {
 .in-line-product .product-img-container {
 	min-width: 250px;
 }
-
 .footer-main {
 	padding: 50px 0px;
 	margin-top: 80px;
@@ -334,7 +307,6 @@ button {
 	height: auto;
 	margin-right: 10px;
 }
-
 .header-menu-add-to-card {
 	height: 100%;
 	position: fixed;
@@ -361,7 +333,6 @@ button {
 	max-height: 300px;
 	overflow: scroll;
 }
-
 .cart-product-added {
 	padding: 10px 0;
 	display: flex;
@@ -414,7 +385,6 @@ button {
 .btn-buy {
 	margin: 15px 0px;
 }
-
 .modal-empty-cart {
 	position: absolute;
 	top: 0;
@@ -491,7 +461,6 @@ button {
 .checkout-title {
 	margin-bottom: 10px;
 }
-
 .checkout-section-container {
 	align-items: flex-start;
 }
@@ -534,7 +503,6 @@ button {
 	height: auto;
 	justify-content: flex-end;
 }
-
 .overlay {
 width: 100%;
 height: 100%;
