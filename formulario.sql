@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2024 a las 07:39:37
+-- Tiempo de generación: 27-05-2024 a las 02:59:29
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -44,7 +44,13 @@ INSERT INTO `datos` (`id`, `nombre`, `contraseña`, `email`, `telefono`, `fecha`
 (1, 'cami', '1234', 'came@gmail.com', 2147483647, '2022-05-24'),
 (2, 'Alirio Majin Palechor', '1234567', 'alirio.majin@cun.edu.co', 2147483647, '2022-05-24'),
 (3, 'Juan Camilo Majin Altahona', '0909', 'loraineruiz05@gmail.com', 2147483647, '2025-05-24'),
-(4, 'Lorraine Altahona Ruiz', '101010', 'loraineruiz05@gmail.com', 2147483647, '2025-05-24');
+(4, 'Lorraine Altahona Ruiz', '101010', 'loraineruiz05@gmail.com', 2147483647, '2025-05-24'),
+(5, 'Juan Carlos Pérez Castillo', '0987654321', 'juan_perezc@cun.edu.co', 1233445, '2027-05-24'),
+(6, 'Juan Diego', '100087', 'juan--@gmail.com', 311224087, '2027-05-24'),
+(7, 'Pedro Suares', '234345677', 'p@hotmail.com', 2147483647, '2027-05-24'),
+(8, 'Felipe Rodriguez', 'felipe.2934', 'felipe@gmail.com', 2147483647, '2027-05-24'),
+(9, 'Stiven Diaz', '40022d', 'diaz@gimail.com', 2147483647, '2027-05-24'),
+(10, 'Juan Manuel', '3005007089jg', 'manuel@gimail.com', 700086321, '2027-05-24');
 
 --
 -- Índices para tablas volcadas
@@ -64,7 +70,7 @@ ALTER TABLE `datos`
 -- AUTO_INCREMENT de la tabla `datos`
 --
 ALTER TABLE `datos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
