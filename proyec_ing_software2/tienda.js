@@ -1,5 +1,4 @@
 
-
 const hide = (element) => {
 	return element.classList.add('is-hidden');
 };
