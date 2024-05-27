@@ -23,17 +23,12 @@ const bodyNoScroll = () => {
 const bodyScroll = () => {
 	document.body.classList.remove('no-scroll');
 };
-
-
-
 const inputSearch = document.querySelector('#input-search');
 const products = document.getElementsByClassName('product'); 
 const reviewFilters = document.getElementsByClassName('filter-review'); 
 const categoryFilters = document.getElementsByClassName('filter-category'); 
 const checkboxes = document.querySelectorAll('.filter'); 
 const clearBtn = document.querySelector('.clear-btn');
-
-
 const searchOn = () => {
 	if (inputSearch.value.length !== 0) {
 		return true;
@@ -57,8 +52,6 @@ const reviewOn = () => {
 	}
 	return false;
 }
-
-
 const passCategoryFilter = (product) => {
 	const category = product.dataset.category;
 	
@@ -77,8 +70,6 @@ const passInputSearch = (product) => {
 	inputSearchStandard = normalize(inputSearchStandard);
 	return nameStandard.includes(inputSearchStandard);
 };
-
-
 const passAllFilters = (product) => {
 	return (
 		// condicion: si pasa filtro o no esta chequeado-incluyendo a todos
@@ -87,8 +78,6 @@ const passAllFilters = (product) => {
 		(passInputSearch(product) || !searchOn())
 	);
 };
-
-
 let productsQty = document.getElementById('products-qty');
 
 const updateQtyProducts = () => {
@@ -100,8 +89,6 @@ const updateQtyProducts = () => {
 	}
 	productsQty.innerText = `Mostrando ${contador} product(s) de ${products.length}`;
 };
-
-
 const showProducts = () => {
 	for (const product of products) {
 		hide(product); 
@@ -112,17 +99,13 @@ const showProducts = () => {
 		}
 	}
 };
-
-
 const filterProducts = () => {
 	showProducts();
 	updateQtyProducts();
 }
-
 const clearSearchInput = () => {
   inputSearch.value = ''
 };
-
 const clearCheckboxesChequed = () => {
 	for (let checkbox of checkboxes) {
 		if (checkbox.checked) {
@@ -130,41 +113,29 @@ const clearCheckboxesChequed = () => {
 		}
 	}
 };
-
 const showAllProducts = () => {
 	for (let product of products) {
 		show(product);
 	}
 };
-
-
-
 for (let checkbox of checkboxes) {
 	checkbox.onclick = () => {
 		filterProducts();
 	};
 }
-
-
 inputSearch.oninput = () => {
 	filterProducts();
 };
-
 clearBtn.onclick = () => {
 	clearCheckboxesChequed(); 
 	clearSearchInput(); 
 	showAllProducts(); 
 	updateQtyProducts();
 };
-
-
-
 const btnGrid = document.querySelector('#view-button-grid');
 const btnList = document.querySelector('#view-button-list');
 const productsListContainer = document.querySelector('.products-list');
 const productsDescriptions = document.querySelectorAll('.product-description'); 
-
-
 showGrid = () => {
 	productsListContainer.classList.remove('in-stack');
 	productsListContainer.classList.add('in-grid');
@@ -175,7 +146,6 @@ showGrid = () => {
 		hide(d);
 	}
 };
-
 showList = () => {
 	productsListContainer.classList.remove('in-grid');
 	productsListContainer.classList.add('in-stack');
@@ -186,32 +156,25 @@ showList = () => {
 		show(d);
 	}
 };
-
 btnGrid.onclick = () => {
 	showGrid();
 };
-
 btnList.onclick = () => {
 	showList();
 };
-
 const btnOpenFilters = document.querySelector('.open-filters-btn');
 const btnCloseFilters = document.querySelector('.close-filters-btn');
 const filtersAside = document.querySelector('.filters-aside');
-
 btnOpenFilters.onclick = () => {
 	filtersAside.classList.add('aside-responsive');
 	filtersAside.classList.add('theme-sky-dark');
 	filtersAside.style.display = 'block';
 };
-
 btnCloseFilters.onclick = () => {
 	filtersAside.classList.remove('aside-responsive');
 	filtersAside.classList.remove('theme-sky-dark');
 	filtersAside.style.display = 'none';
 };
-
-
 const btnOpenCart = document.querySelector('.btn-cart');
 const btnCloseCart = document.querySelector('.btn-close');
 const cart = document.querySelector('.header-menu-add-to-card');
@@ -222,11 +185,7 @@ const counterProducts = document.querySelectorAll('.cart-qty');
 const cartFullMsg = document.querySelector('.cart-full');
 const cartEmptyMsg = document.querySelector('.cart-empty');
 const carrito = document.querySelector('.cart-products-added');
-
-
 let subtotalProductsAdded = 0; 
-
-
 const showCart = () => {
 	show(cart);
   cart.classList.remove('menu-add-to-card-hidde');
@@ -245,7 +204,6 @@ const hiddeCart = () => {
 	show(cartFullMsg);
 	hide(cartEmptyMsg);
 };
-
 const addCounterCart = () => {
 	for (let c of counterProducts) {
 		let counterNumber = Number(c.innerText);
@@ -260,8 +218,6 @@ const subtractCounterCart = () => {
 		c.innerText = counterNumber;
 	}
 };
-
-
 const knowProduct = (btn,list) => {
 	for (let x of list)
 		if (x.dataset.id === btn.getAttribute('id')) {
@@ -271,10 +227,6 @@ const knowProduct = (btn,list) => {
 			return x;
 		}
 };
-
-
-
-
 const addSubtotal = (subtotal) => {
 	
 	subtotalProductsAdded = subtotalProductsAdded + Number(subtotal);
@@ -282,24 +234,18 @@ const addSubtotal = (subtotal) => {
 		c.innerText = subtotalProductsAdded;
 	}
 };
-
 const subtractSubtotal = (subtotal) => {
-	
 	subtotalProductsAdded = subtotalProductsAdded - Number(subtotal);
 
 	for (let c of cartSubtotalOutput) {
 		c.innerText = subtotalProductsAdded;
 	}
 };
-
 addPriceToSubtotal = (btnAddToCart) => {
-	
-
 	let productAdded = knowProduct(btnAddToCart, products);
 	let subtotal = productAdded.dataset.price;
 	addSubtotal(subtotal);
 };
-
 const obtenerPlantillaProductoAgregado = (id, nombre, precio, imagen) => {
 	return `<article class="cart-product-added" data-id="${id}" data-qty="1" data-price=${precio}>
     <img src="${imagen}" alt="" class="cart-product-img" />
@@ -318,7 +264,6 @@ const obtenerPlantillaProductoAgregado = (id, nombre, precio, imagen) => {
     </div>
   </article>`;
 };
-
 const showProductOnCart = (btnAddToCart) => {
 	let productAdded = knowProduct(btnAddToCart, products);
 	const plantilla = obtenerPlantillaProductoAgregado(
@@ -328,30 +273,23 @@ const showProductOnCart = (btnAddToCart) => {
 		productAdded.dataset.image
 	);
 	carrito.innerHTML += plantilla;
-	
 };
-
 btnOpenCart.onclick = () => {
 	showOverlay();
 	overlay.style.zIndex = '2';
 	bodyNoScroll();
 	showCart();
 };
-
 btnCloseCart.onclick = () => {
 	hiddeOverlay();
 	overlay.style.zIndex = '1';
 	bodyScroll();
 	hiddeCart();
 };
-
 const removeProductOfTheList = (btnRemove) => {
-	
 	const allProductsAdded = document.querySelectorAll(".cart-product-added")	
 	console.log(allProductsAdded)
-
 	let productToRemove = knowProduct(btnRemove, allProductsAdded)
-
 	let subtotal = productToRemove.dataset.price;
 	console.log(subtotal)
 	subtractSubtotal(subtotal)
@@ -359,31 +297,25 @@ const removeProductOfTheList = (btnRemove) => {
 	productToRemove.remove();
 	listenEventsOnCart();
 };
-
 const addProductToTheCartList = (inputQty) => {
 	let qty = inputQty.getAttribute('value');
 	console.log(qty)
 	let subtotal = Number(inputQty.dataset.precio) * qty;
 	console.log(subtotal)
-	
 	addSubtotal(subtotal);
 	addCounterCart();
 	listenEventsOnCart();
 };
-
-
 const listenEventsOnCart = () => {
 	const allBtnRemove = document.querySelectorAll('.remove-from-cart-btn');
 	console.log(allBtnRemove)
 	const allInputsProductQty = document.querySelectorAll('.cart-product-qty');
-
 	for (btnRemove of allBtnRemove) {
 		btnRemove.onclick = () => {
 			console.log(btnRemove)
 			removeProductOfTheList(btnRemove);
 		};
 	}
-
 	for (inputQty of allInputsProductQty) {
 		inputQty.onchange = () => {
 			console.log("apretaste sumar producto")
@@ -391,8 +323,6 @@ const listenEventsOnCart = () => {
 		};
 	}
 };
-
-
 for (let btnAddToCart of allBtnAddToCart) {
 	btnAddToCart.onclick = () => {
 		addCounterCart();
@@ -401,35 +331,28 @@ for (let btnAddToCart of allBtnAddToCart) {
 		listenEventsOnCart();
 	};
 };
-
 const btnOpenModalEmptyCart = document.querySelector('.btn-empty-cart');
 const modalEmptyCart = document.querySelector('.modal-empty-cart');
 const btnConfirmEmptyCart = document.querySelector('.confirm-cart-empty-btn');
 const btnCancelEmptyCart = document.querySelector('.cancel-empty-cart-btn');
-
-
 resetCounterCart = () => {
 	for (let c of counterProducts) {
 		c.innerText = '0';
 	}
 };
-
 resetPriceToSubtotal = () => {
 	subtotalProductsAdded = 0;
 	for (let c of cartSubtotalOutput) {
 		c.innerText = subtotalProductsAdded;
 	}
 };
-
 hideAllProductsOnCart = () => {
 	carrito.innerHTML = '';
 };
-
 const openModalEmptyCart = () => {
   show(modalEmptyCart);
   modalEmptyCart.setAttribute('aria-hidden', false)
 };
-
 const emptyCartConfirm = () => {
 	resetCounterCart();
 	resetPriceToSubtotal();
@@ -439,7 +362,6 @@ const emptyCartConfirm = () => {
   overlay.style.zIndex = 2
   modalEmptyCart.setAttribute('aria-hidden', true)
 };
-
 btnOpenModalEmptyCart.onclick = () => {
 	openModalEmptyCart();
 	showOverlay();
@@ -459,24 +381,19 @@ btnCancelEmptyCart.onclick = () => {
 	hide(modalEmptyCart);
 	overlay.style.zIndex = '1';
 };
-
 const btnOpenCheckout = document.querySelector('.btn-buy');
 const btnFinishBuy = document.querySelector('.btn-finish-buy');
 const btnCancelBuy = document.querySelector('.btn-cancel-buy');
 const menuCheckout = document.querySelector('.menu-checkout');
-
-
 const showCheckout = () => {
   show(menuCheckout);
   menuCheckout.setAttribute('aria-hidden', false)
   overlay.style.zIndex = 4
 };
-
 const hiddeCheckout = () => {
   hide(menuCheckout);
   menuCheckout.setAttribute('aria-hidden', true)
 };
-
 btnOpenCheckout.onclick = () => {
 	showOverlay();
 	overlay.style.zIndex = '3';
@@ -484,7 +401,6 @@ btnOpenCheckout.onclick = () => {
 	showCheckout();
 	getTotal();
 };
-
 btnFinishBuy.onclick = () => {
 	hiddeOverlay();
 	overlay.style.zIndex = '1';
@@ -496,7 +412,6 @@ btnFinishBuy.onclick = () => {
 	hiddeCheckout();
 	hiddeCart();
 };
-
 btnCancelBuy.onclick = () => {
 	hiddeOverlay();
 	overlay.style.zIndex = '1';
@@ -504,43 +419,32 @@ btnCancelBuy.onclick = () => {
 	hiddeCheckout();
 	hiddeCart();
 };
-
-
 const allPayOptions = document.querySelectorAll('.pay-option');
-
 const cashOption = document.querySelector('#cash-debit');
 const creditOption = document.querySelector('#credit');
 const deliveryOption = document.querySelector('#delivery');
 const discountOption = document.querySelector('#discount');
-
 const cartTaxValue = document.querySelector('.cart-tax-value');
 const discountValue = document.querySelector('.cart-discount-value');
 const deliveryValue = document.querySelector('.cart-delivery-value');
 const cartTotalValue = document.querySelector('.cart-total-value');
-
 const cartTax = document.querySelector('.cart-tax');
 const discount = document.querySelector('.cart-discount');
 const delivery = document.querySelector('.cart-delivery');
-
-
 let cartTaxValueCalculated = 0;
 let deliveryPrice = 0;
 let discountCalculated = 0;
 let cartTotalValueCalculated;
 cartTotalValue.textContent = subtotalProductsAdded;
-
 const getCartTax = () => {
 	cartTaxValueCalculated = subtotalProductsAdded * 0.1;
 };
-
 const addDeliveryPrice = () => {
 	deliveryPrice = 50;
 };
-
 const getDiscount = () => {
 	discountCalculated = -subtotalProductsAdded * 0.1;
 };
-
 getTotal = () => {
 	if (creditOption.checked) {
 		getCartTax();
@@ -563,22 +467,17 @@ getTotal = () => {
 		discountCalculated = 0;
 		hide(discount);
 	}
-
-	
 	cartTaxValue.textContent = cartTaxValueCalculated.toFixed(2);
 	deliveryValue.textContent = deliveryPrice.toFixed(2);
 	discountValue.textContent = discountCalculated.toFixed(2);
-
 	totalValueCalculated = subtotalProductsAdded + deliveryPrice + discountCalculated + cartTaxValueCalculated;
 	cartTotalValue.textContent = totalValueCalculated.toFixed(2);
 };
-
 for (let payOption of allPayOptions) {
 	payOption.onclick = () => {
 		getTotal();
 	};
 }
-
 const resetOptionsPay = () => {
  cashOption.checked = true
  creditOption.checked = false 
